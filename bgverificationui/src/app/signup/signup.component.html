@@ -1,0 +1,134 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>SignUp</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>UserId: </label>
+
+            <input required minlength="1" type="number" #empIdRef='ngModel' name="userId" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide User Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>UserName: </label>
+
+            <input required minlength="6" type="text" #empNameRef='ngModel' name="userName" ngModel class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide User Name
+
+                </div>
+
+                <div *ngIf='empNameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="form-group">
+
+            <label>Usertype: </label>
+
+            <input required minlength="6" type="text" #empNameRef='ngModel' name="userType" ngModel class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide User Type
+
+                </div>
+
+                
+            </div>
+
+        </div>
+
+        
+        <div class="form-group">
+
+            <label>UserPassword: </label>
+
+            <input required minlength="6" type="password" #empNameRef='ngModel' name="userPassword" ngModel class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide User Password
+
+                </div>
+
+        
+            </div>
+
+        </div>
+
+       
+        <div class="form-group">
+
+            <label>User PhoneNumber: </label>
+
+            <input required length="10" type="number" #empphoneRef='ngModel' name="userPhoneno" ngModel class="form-control">
+
+            <div *ngIf='empphoneRef.errors && empphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empphoneRef.errors.required'> Provide User Phone Number </div>
+
+                <div *ngIf='empNameRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>User EmailID: </label>
+
+            <input required minlength="6" type="text" #empcompanyName='ngModel' name="userEmail" ngModel
+                class="form-control">
+
+            <div *ngIf='empcompanyName.errors
+                        && empcompanyName.touched' class="alert alert-danger">
+
+                <div [hidden]='!empcompanyName.errors.required'>
+
+                    Provide User MailID
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+        <input [disabled]="userForm.invalid" type="submit" value="SignUp" class="btn btn-primary">
+
+    </form>
+
+</div>
+
+  <!-- <div>
+    <h2>{{message}}</h2>
+</div>>-->
